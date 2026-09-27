@@ -142,3 +142,43 @@ All project documentation is located in the [`docs/`](docs/) directory:
 2. **Quota Barrier:** The Azure for Students subscription quota for `Standard DCasv6 Family` is 0 vCPUs in South India, preventing live cloud provisioning without an enterprise quota increase.
 3. **No Direct Azure Attestation:** Because no cloud VM was deployed, remote attestation via `/dev/sev-guest` and Microsoft Azure Attestation (MAA) could not be executed live.
 4. **Simulated Financial Transactions:** All banking operations are simulated within the local database for educational and demonstration purposes. No real banking networks or payment rails are integrated.
+---
+
+## 🏛️ T176_P074 - Azure Sensitive Workload Architecture
+
+### Architecture Description
+
+This architecture represents the flow of a sensitive workload in Microsoft Azure and compares standard compute with specialized compute options.
+
+The process starts with the **User/Client**, who sends a request through a **Browser or Postman**. The request can be handled by two different compute options.
+
+#### Standard VM
+A **Standard VM** provides standard isolation and is suitable for general-purpose workloads. It is also a more cost-effective option.
+
+#### Specialized Compute
+**Specialized Compute** includes options such as **Confidential VM** or **Dedicated Host**. These provide stronger isolation and hardware-based security, making them more suitable for workloads that handle sensitive or confidential information.
+
+#### Sensitive Workload and Application/API
+The selected compute environment runs the **Sensitive Workload**, which is responsible for processing confidential data. This workload then communicates with the **Application/API layer**, where the main business logic, data processing, and API services are performed.
+
+#### Security and Monitoring
+To improve security, **Secure Secrets/Key Vault** can be used to safely store and manage important information such as passwords, encryption keys, and certificates.
+
+**Monitoring and Logs** can also be used to monitor system performance, collect logs, and track important events.
+
+### Overall Architecture Comparison
+
+Overall, this architecture helps evaluate and compare standard and specialized Azure compute options based on factors such as:
+- Security
+- Isolation
+- Compliance
+- Performance
+- Availability
+- Cost
+
+This comparison helps select the most suitable Azure compute option for a sensitive workload.
+
+### Architecture Diagram
+
+![Azure Sensitive Workload Architecture](architecture_T176_P074.jpg)
+
