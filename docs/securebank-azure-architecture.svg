@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 780" width="100%" height="100%" style="background-color: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <style>
+      .box { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.5; rx: 8px; }
+      .zone-box { fill: #f1f5f9; stroke: #94a3b8; stroke-width: 1.5; stroke-dasharray: 4 4; rx: 12px; }
+      .cvm-box { fill: #eff6ff; stroke: #2563eb; stroke-width: 2; rx: 8px; }
+      .tcb-box { fill: #fef2f2; stroke: #dc2626; stroke-width: 1.5; stroke-dasharray: 3 3; rx: 6px; }
+      .title { font-weight: 700; fill: #0f172a; }
+      .subtitle { font-size: 12px; fill: #475569; }
+      .badge { font-size: 11px; font-weight: 600; text-anchor: middle; }
+      .label { font-size: 13px; font-weight: 600; fill: #1e293b; }
+      .text-sm { font-size: 11px; fill: #64748b; }
+      .arrow { stroke: #2563eb; stroke-width: 1.8; fill: none; marker-end: url(#arrow-blue); }
+      .arrow-dashed { stroke: #64748b; stroke-width: 1.5; stroke-dasharray: 4 4; fill: none; marker-end: url(#arrow-gray); }
+    </style>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#2563eb" />
+    </marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#64748b" />
+    </marker>
+  </defs>
+
+  <!-- Canvas Header -->
+  <rect x="25" y="20" width="1050" height="65" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="50" y="48" class="title" style="font-size: 20px;">SecureBank — Azure Confidential Compute Proposed Architecture</text>
+  <text x="50" y="68" class="subtitle">Architectural Study for Hosting High-Security Banking Workloads with AMD SEV-SNP &amp; vTPM Remote Attestation</text>
+  <rect x="860" y="35" width="190" height="28" rx="4" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+  <text x="955" y="53" class="badge" fill="#92400e">STATUS: ARCHITECTURAL STUDY</text>
+
+  <!-- Left: Client / Browser -->
+  <rect x="25" y="110" width="180" height="530" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="40" y="140" class="title" style="font-size: 15px;">Client Domain</text>
+  <text x="40" y="158" class="text-sm">End-User Devices</text>
+
+  <rect x="40" y="180" width="150" height="120" class="box"/>
+  <text x="55" y="208" class="label">Retail Customer</text>
+  <text x="55" y="228" class="text-sm">Web Browser (HTTPS)</text>
+  <text x="55" y="246" class="text-sm">• React 19 Frontend</text>
+  <text x="55" y="264" class="text-sm">• JWT Authentication</text>
+  <text x="55" y="282" class="text-sm">• Simulated Operations</text>
+
+  <rect x="40" y="320" width="150" height="110" class="box"/>
+  <text x="55" y="348" class="label">Compliance Auditor</text>
+  <text x="55" y="368" class="text-sm">Read-Only Auditing</text>
+  <text x="55" y="386" class="text-sm">• Attestation Review</text>
+  <text x="55" y="404" class="text-sm">• Ledger Inspection</text>
+
+  <rect x="40" y="450" width="150" height="160" class="box" fill="#f8fafc"/>
+  <text x="55" y="476" class="label">Client Protections</text>
+  <text x="55" y="496" class="text-sm">• TLS 1.3 Transport</text>
+  <text x="55" y="514" class="text-sm">• CSRF/XSS Mitigation</text>
+  <text x="55" y="532" class="text-sm">• Ephemeral Memory</text>
+  <text x="55" y="550" class="text-sm">• Token Expiration</text>
+  <text x="55" y="568" class="text-sm">• Masked PAN/Account</text>
+
+  <!-- Center: Microsoft Azure Region (South India / Proposed) -->
+  <rect x="235" y="110" width="840" height="645" class="zone-box"/>
+  <text x="255" y="140" class="title" style="font-size: 16px;">Microsoft Azure Cloud — Target Region: South India (Proposed)</text>
+  <text x="255" y="158" class="subtitle">Virtual Network (VNet: 10.1.0.0/16) — Zero Direct Public Exposure for Backend &amp; Database</text>
+
+  <!-- Perimeter / Ingress -->
+  <rect x="255" y="180" width="180" height="440" class="box"/>
+  <text x="270" y="208" class="title" style="font-size: 14px;">Ingress &amp; Perimeter</text>
+  <text x="270" y="226" class="text-sm">Subnet: 10.1.0.0/24</text>
+
+  <rect x="270" y="245" width="150" height="95" class="box" fill="#f1f5f9"/>
+  <text x="282" y="270" class="label">Azure App Gateway</text>
+  <text x="282" y="288" class="text-sm">• WAF v2 Enabled</text>
+  <text x="282" y="304" class="text-sm">• TLS 1.3 Offloading</text>
+  <text x="282" y="320" class="text-sm">• DDoS Protection</text>
+
+  <rect x="270" y="360" width="150" height="95" class="box" fill="#f1f5f9"/>
+  <text x="282" y="385" class="label">Static Web Apps</text>
+  <text x="282" y="403" class="text-sm">• React 19 Client UI</text>
+  <text x="282" y="419" class="text-sm">• Global CDN Cache</text>
+  <text x="282" y="435" class="text-sm">• Custom Domain</text>
+
+  <rect x="270" y="475" width="150" height="125" class="box" fill="#f8fafc"/>
+  <text x="282" y="500" class="label">Azure Bastion</text>
+  <text x="282" y="518" class="text-sm">• Secure Admin Access</text>
+  <text x="282" y="534" class="text-sm">• No Public IP on VM</text>
+  <text x="282" y="550" class="text-sm">• SSH over TLS 443</text>
+  <text x="282" y="566" class="text-sm">• Audit Logging</text>
+
+  <!-- Application Subnet (Confidential VM) -->
+  <rect x="465" y="180" width="350" height="440" class="box" style="stroke: #3b82f6; stroke-width: 2;"/>
+  <text x="480" y="208" class="title" style="font-size: 14px; fill: #1d4ed8;">App Subnet (10.1.1.0/24) — Confidential Compute</text>
+  <text x="480" y="226" class="text-sm">Network Security Group: Allow HTTPS (443) only from App Gateway</text>
+
+  <!-- Confidential VM Envelope -->
+  <rect x="480" y="240" width="320" height="360" class="cvm-box"/>
+  <text x="495" y="266" class="title" style="font-size: 13px; fill: #1e40af;">Confidential VM: Standard_DC2as_v6</text>
+  <text x="495" y="284" class="text-sm">2 vCPUs, 8 GB RAM | AMD EPYC™ Processor with SEV-SNP</text>
+
+  <!-- AMD SEV-SNP Memory Encryption -->
+  <rect x="495" y="295" width="290" height="70" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.2"/>
+  <text x="510" y="318" class="label" style="fill: #1e3a8a;">AMD SEV-SNP Silicon Enclave</text>
+  <text x="510" y="336" class="text-sm">• On-die AES-128/256 Memory Controller Encryption</text>
+  <text x="510" y="352" class="text-sm">• Zero-Trust: Hypervisor Excluded from TCB</text>
+
+  <!-- Guest OS & Application Layer -->
+  <rect x="495" y="375" width="290" height="110" rx="6" fill="#ffffff" stroke="#93c5fd" stroke-width="1.2"/>
+  <text x="510" y="398" class="label">SecureBank Backend (Flask API)</text>
+  <text x="510" y="416" class="text-sm">• Python 3.10+ / Gunicorn WSGI (Port 5001)</text>
+  <text x="510" y="434" class="text-sm">• Arbitrary Decimal Precision Banking Math</text>
+  <text x="510" y="452" class="text-sm">• Multi-Tenant Access Control &amp; JWT Verification</text>
+  <text x="510" y="470" class="text-sm">• Psycopg 3 PostgreSQL Connection Pool</text>
+
+  <!-- vTPM & Attestation Agent -->
+  <rect x="495" y="495" width="290" height="90" rx="6" fill="#ffffff" stroke="#93c5fd" stroke-width="1.2"/>
+  <text x="510" y="518" class="label">vTPM 2.0 &amp; Guest Attestation Client</text>
+  <text x="510" y="536" class="text-sm">• Measured Boot: Platform Configuration Registers (PCRs)</text>
+  <text x="510" y="552" class="text-sm">• Hardware Attestation Quote generation (/dev/sev-guest)</text>
+  <text x="510" y="568" class="text-sm">• Validated via Microsoft Azure Attestation (MAA)</text>
+
+  <!-- Right: Data Tier & Key Management -->
+  <rect x="840" y="180" width="215" height="440" class="box"/>
+  <text x="855" y="208" class="title" style="font-size: 14px;">Data Tier &amp; Security</text>
+  <text x="855" y="226" class="text-sm">DB Subnet: 10.1.2.0/24</text>
+
+  <rect x="855" y="245" width="185" height="155" class="box" fill="#f8fafc"/>
+  <text x="868" y="270" class="label">Azure DB for PostgreSQL</text>
+  <text x="868" y="288" class="text-sm">• PostgreSQL 17 Flexible</text>
+  <text x="868" y="304" class="text-sm">• Private Link (No Public IP)</text>
+  <text x="868" y="320" class="text-sm">• Enforced TLS 1.3</text>
+  <text x="868" y="336" class="text-sm">• AES-256 Disk Encryption</text>
+  <text x="868" y="352" class="text-sm">• Atomic Transactions</text>
+  <text x="868" y="368" class="text-sm">• Strict Foreign Key Ledger</text>
+  <text x="868" y="386" class="text-sm">• Numeric(14,2) Columns</text>
+
+  <rect x="855" y="415" width="185" height="95" class="box" fill="#f8fafc"/>
+  <text x="868" y="440" class="label">Azure Attestation (MAA)</text>
+  <text x="868" y="458" class="text-sm">• Silicon Quote Validation</text>
+  <text x="868" y="474" class="text-sm">• TCB Baseline Evaluation</text>
+  <text x="868" y="490" class="text-sm">• Issues Signed JWT Token</text>
+
+  <rect x="855" y="520" width="185" height="85" class="box" fill="#f8fafc"/>
+  <text x="868" y="545" class="label">Azure Key Vault (AKV)</text>
+  <text x="868" y="563" class="text-sm">• Managed HSM</text>
+  <text x="868" y="579" class="text-sm">• Secure Key Release (SKR)</text>
+  <text x="868" y="595" class="text-sm">• Releases keys only to CVM</text>
+
+  <!-- Connectors / Arrows -->
+  <path d="M 190 230 L 270 270" class="arrow"/>
+  <text x="210" y="235" class="text-sm" fill="#2563eb">HTTPS</text>
+
+  <path d="M 420 280 L 480 340" class="arrow"/>
+  <text x="430" y="300" class="text-sm" fill="#2563eb">Reverse Proxy</text>
+
+  <path d="M 800 420 L 855 320" class="arrow"/>
+  <text x="805" y="360" class="text-sm" fill="#2563eb">Private Link</text>
+
+  <path d="M 785 540 L 855 460" class="arrow-dashed"/>
+  <text x="800" y="490" class="text-sm" fill="#64748b">Attest</text>
+
+  <path d="M 945 510 L 945 520" class="arrow-dashed"/>
+
+  <!-- Footer / Disclaimer Note -->
+  <rect x="25" y="670" width="1050" height="75" rx="8" fill="#fffbeb" stroke="#fef3c7" stroke-width="1.5"/>
+  <text x="45" y="694" class="title" style="font-size: 13px; fill: #b45309;">⚠️ Research &amp; Educational Study Disclaimer (Azure for Students Verification)</text>
+  <text x="45" y="712" class="text-sm" style="fill: #78350f;">• Regional Check: Microsoft Azure South India region lists Standard_DC2as_v6 &amp; Standard_EC2as_v6 with AMD SEV-SNP support.</text>
+  <text x="45" y="728" class="text-sm" style="fill: #78350f;">• Quota Finding: Subscription quota for DCasv6 and ECasv6 families is 0 vCPUs; therefore, cloud deployment was not executed.</text>
+  <text x="45" y="744" class="text-sm" style="fill: #78350f;">• Verification Basis: Full banking application is verified and demonstrated locally using Flask, React 19, and PostgreSQL 17 with 32/32 passing tests.</text>
+</svg>
