@@ -55,3 +55,26 @@ frontend/dist-ssr/
 .vscode/
 *.swp
 *.swo
+
+# Python virtual environments
+venv/
+.venv/
+backend/venv/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Secrets and environment files
+.env
+.env.*
+!.env.example
+
+# Local database files
+*.db
+*.sqlite
+*.sqlite3
+
+# macOS files
+.DS_Store
